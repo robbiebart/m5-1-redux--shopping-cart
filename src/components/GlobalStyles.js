@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -6,6 +6,15 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     background: #F2C1E5;
   }
+
+  h2,h3 {
+    color: white;
+  }
+  
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
 
   *,
   *:before,
