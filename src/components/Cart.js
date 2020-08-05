@@ -8,8 +8,15 @@ import { getStoreItemArray } from "../reducers/index";
 const Cart = () => {
   const state = useSelector((state) => state);
   const storeItems = useSelector(getStoreItemArray);
-
   console.log("store items", storeItems);
+  const totalPrice =
+    storeItems.length !== 0
+      ? storeItems.reduce((total, item) => {
+          console.log("total item", total, item);
+          return total + item.price * item.quantity;
+        }, 0)
+      : 0;
+  console.log("total price", totalPrice);
   console.log("state", state);
   return (
     <>
@@ -18,15 +25,17 @@ const Cart = () => {
         <h3>0 Items</h3>
         {storeItems.map((item) => {
           return (
-            <CartItem
-              key={item.id}
-              name={item.title}
-              quantity={item.quantity}
-            />
+            <div>
+              <CartItem
+                key={item.id}
+                name={item.title}
+                quantity={item.quantity}
+              />
+            </div>
           );
         })}
       </TitleDiv>
-      <TotalCost>Total: {}</TotalCost>
+      <TotalCost>Total: {totalPrice}</TotalCost>
     </>
   );
 };
@@ -34,6 +43,7 @@ const Cart = () => {
 /*
 let priceArray = storeItems.filter((item) => {return storeItems.price})
 
+storeItems.price.reduce(())
 
 const sum = [1, 2, 3].reduce((partial_sum, a) => partial_sum + a,0); 
 console.log(sum);
