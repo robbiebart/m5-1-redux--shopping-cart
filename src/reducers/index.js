@@ -31,7 +31,7 @@ export default function cartReducer(state = initialState, action) {
 
     case "REMOVE_ITEM": {
       const newCart = { ...state };
-      delete newCart[action.itemId];
+      delete newCart[action.item.id];
       return newCart;
     }
 

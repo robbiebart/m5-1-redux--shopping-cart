@@ -27,7 +27,7 @@ const Cart = () => {
           return (
             <div>
               <CartItem
-                key={item.id}
+                id={item.id}
                 name={item.title}
                 quantity={item.quantity}
               />
